@@ -4,3 +4,6 @@ fat*
 FFmpeg.framework
 FFmpeg-*
 .DS_Store
+
+
+pre_build_ffmpeg_ios/lib
