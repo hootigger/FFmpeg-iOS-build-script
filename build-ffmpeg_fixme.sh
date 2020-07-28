@@ -27,17 +27,22 @@ CONFIGURE_FLAGS="$CONFIGURE_FLAGS \
                 --disable-ffplay \
                 --disable-ffprobe \
                 --disable-ffserver"
-#                --disable-avdevice"
-#--disable-muxers"
+#								--disable-filters \
+#								--disable-parsers --enable-parser=mpegaudio --enable-parser=aac --enable-parser=aac_latm --enable-parser=ac3 --enable-parser=h264 \
+#								--disable-muxers  --enable-muxer=mpegts --disable-demuxers --enable-demuxer=mpegts \
+#								--disable-bsfs --enable-bsf=aac_adtstoasc \
+#								--disable-indevs --disable-outdevs \
+#								--disable-protocols --enable-protocol=file \
+#								--disable-network"
 
 #启用优化文件大小(牺牲速度)
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-small"
 
 #禁用所有解码器
-#CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-decoders"
+CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-decoders"
 
 #禁用所有编码器
-#CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders"
+CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders"
 
 #aac mp3解码器
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-decoder=aac --enable-decoder=mp3"
@@ -65,7 +70,7 @@ ARCHS="arm64"
 COMPILE="y"
 LIPO="y"
 
-DEPLOYMENT_TARGET="9.0"
+DEPLOYMENT_TARGET="10.0"
 
 if [ "$*" ]
 then
