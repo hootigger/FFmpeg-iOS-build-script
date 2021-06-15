@@ -47,9 +47,11 @@ CONFIGURE_FLAGS="$CONFIGURE_FLAGS --disable-encoders"
 #aac mp3解码器
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-decoder=aac --enable-decoder=mp3"
 
-#aac mp3编码器
-CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-encoder=mp3 --enable-encoder=aac"
+#aac mp3编码器 WARNING: Option --enable-encoder=mp3 did not match anything,所以移除
+CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-encoder=aac"
 
+# pcm_s16le 解码器
+CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-decoder=pcm_s16le"
 
 if [ "$X264" ]
 then
