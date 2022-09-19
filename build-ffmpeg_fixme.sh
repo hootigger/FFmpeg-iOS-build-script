@@ -51,7 +51,7 @@ CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-decoder=aac --enable-decoder=mp3"
 CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-encoder=aac"
 
 # pcm_s16le 解码器
-CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-decoder=pcm_s16le"
+CONFIGURE_FLAGS="$CONFIGURE_FLAGS --enable-decoder=pcm_s16le --enable-encoder=pcm_s16le"
 
 if [ "$X264" ]
 then
