@@ -72,7 +72,7 @@ ARCHS="arm64 x86_64"
 COMPILE="y"
 LIPO="y"
 
-DEPLOYMENT_TARGET="10.0"
+DEPLOYMENT_TARGET="13.0"
 
 if [ "$*" ]
 then
@@ -116,7 +116,7 @@ then
 	if [ ! -r $SOURCE ]
 	then
 		echo 'FFmpeg source not found. Trying to download...'
-		curl http://www.ffmpeg.org/releases/$SOURCE.tar.bz2 | tar xj \
+		curl -L http://www.ffmpeg.org/releases/$SOURCE.tar.bz2 | tar xj \
 			|| exit 1
 	fi
 
@@ -128,6 +128,8 @@ then
 		cd "$SCRATCH/$ARCH"
 
 		CFLAGS="-arch $ARCH"
+        # 禁用类型 在编译配置中禁用警告
+        CFLAGS="$CFLAGS -Wno-incompatible-function-pointer-types"
 		if [ "$ARCH" = "i386" -o "$ARCH" = "x86_64" ]
 		then
 		    PLATFORM="iPhoneSimulator"
